@@ -1,6 +1,8 @@
 import { Monaco } from "@monaco-editor/react";
 import { Theme } from "../../../types";
 
+//this file stores the prewritten code which is shown to user when it logs in
+
 type LanguageConfig = Record<
   string,
   {

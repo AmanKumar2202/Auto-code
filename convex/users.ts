@@ -8,11 +8,13 @@ export const syncUser = mutation({
     name: v.string(),
   },
   handler: async (ctx, args) => {
+    //check user exist or not
     const existingUser = await ctx.db
       .query("users")
       .filter((q) => q.eq(q.field("userId"), args.userId))
       .first();
 
+    // if user doesnot exist then insert it
     if (!existingUser) {
       await ctx.db.insert("users", {
         userId: args.userId,
